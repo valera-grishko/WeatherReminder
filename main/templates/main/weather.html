@@ -1,0 +1,20 @@
+{% extends "main/base.html" %}
+{% block title %}Weather{% endblock %}
+{% block content %}
+<center>
+    <h1>Weather Reminder</h1><br><br>
+    <a href="/search/" type="button">Back to search</a>
+    <a href="/profile/" type="button">Back to profile</a>
+    <br><br><br><br>
+    <div class="card">
+        <h2>City: {{ info.city }}</h2>
+        <h2>Country: {{ info.country }}</h2>
+        <h2>Temperature: {{ info.temp }} <sup>o</sup>C</h2>
+        <img src="http://openweathermap.org/img/w/{{ info.icon }}.png">
+    </div><br><br>
+    <form action="/follow/{{ info.city }}/" method="post">
+        {% csrf_token %}
+        <input type="submit" name="upvote" value={{follow}} />
+    </form>
+</center>
+{% endblock %}

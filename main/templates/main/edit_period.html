@@ -1,0 +1,16 @@
+{% extends "main/base.html" %}
+{% block title %}Edit{% endblock %}
+{% block content %}
+<center>
+    <br><br><br><br>
+    <a href="/profile/" type="button">Back to profile</a>
+    <br><br><br><br>
+    <form class="box" action="." method="post">
+        <h1>Edit Period</h1><br><br>
+        <h3>{{ form.as_p }}</h3>
+        {% csrf_token %}
+        <br><br><input type="submit" value="Edit">
+        <br><br><br>
+    </form>
+</center>
+{% endblock %}

@@ -1,0 +1,15 @@
+<!doctype html>
+{% load static %}
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://bootstraptema.ru/plugins/2015/bootstrap3/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+<div id="content">
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+</html>

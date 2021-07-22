@@ -1,0 +1,23 @@
+{% extends "main/base.html" %}
+{% block title %}Profile {{ username }}{% endblock %}
+{% block content %}
+<center>
+    <br><br>
+    <h1>Profile {{ username }}</h1><br><br>
+    <a href="/edit/" type="button">Edit Period</a>
+    <a href="/search/" type="button">Search</a>
+    <a href="/logout/" type="button">Logout</a>
+    <br><br><br><a href="/api/profile/" type="button">API</a>
+    <br><br><br>
+    {% for city in info %}
+    <br><br>
+    <div class="card">
+        <center><h2>City: {{ city.city }}</h2>
+        <h2>Country: {{ city.country }}</h2>
+        <h2>Temperature: {{ city.temp }} <sup>o</sup>C</h2>
+        <img src="http://openweathermap.org/img/w/{{ city.icon }}.png"></center><br>
+    </div>
+    {% endfor %}
+    <br><br><br>
+</center>
+{% endblock %}
