@@ -14,7 +14,7 @@ Heroku resources: Heroku Postgres, Heroku Redis
   
  --- Endpoints ---  
 
-/api/weather/<city>/ ---> API containing information about the city's weather  
+/api/weather/city_name/ ---> API containing information about the city's weather  
 /api/profile/ ---> Profile data in API  
 /api/token/ ---> get access and refresh  
   
