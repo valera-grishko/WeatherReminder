@@ -13,8 +13,10 @@ from .models import Follow
 
 
 class Registration(FormView):
-    template_name = "main/registration.html"
+    """ Displaying the registration form """
+
     form_class = RegistrationForm
+    template_name = "main/registration.html"
 
     def form_valid(self, form):
         new_user, password = form.save()
@@ -28,8 +30,10 @@ class Registration(FormView):
 
 
 class Login(FormView):
-    template_name = "main/login.html"
+    """ Displaying the authorization form """
+
     form_class = LoginForm
+    template_name = "main/login.html"
 
     def form_valid(self, form):
         user, password = form.sign_in()
@@ -42,6 +46,9 @@ class Login(FormView):
 
 
 class Profile(APIView):
+    """ Displaying the user profile
+    with the cities to which the user is subscribed """
+
     permission_classes = (IsAuthenticated,)
 
     def get(self, request):
@@ -53,6 +60,8 @@ class Profile(APIView):
 
 
 class ProfileAPI(APIView):
+    """ API profile """
+
     permission_classes = (IsAuthenticated,)
 
     def get(self, request):
@@ -64,6 +73,8 @@ class ProfileAPI(APIView):
 
 
 class EditPeriod(APIView):
+    """ Displaying the edit period form """
+
     permission_classes = (IsAuthenticated,)
 
     def get(self, request):
@@ -89,6 +100,8 @@ class EditPeriod(APIView):
 
 
 class SearchAPI(APIView):
+    """ API of the selected city """
+
     permission_classes = (IsAuthenticated,)
 
     def get(self, request, city):
@@ -98,6 +111,8 @@ class SearchAPI(APIView):
 
 
 class Search(APIView):
+    """ Displaying the search city form """
+
     permission_classes = (IsAuthenticated,)
 
     def get(self, request):
@@ -115,6 +130,8 @@ class Search(APIView):
 
 
 class FollowCity(APIView):
+    """ Subscription """
+
     permission_classes = (IsAuthenticated,)
 
     def post(self, request, city):

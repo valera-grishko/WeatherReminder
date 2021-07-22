@@ -22,12 +22,16 @@ NOTIFICATIONS_CHOICES = (
 
 
 class CustomUserCreationForm(UserCreationForm):
+    """ AbstractUser form """
+
     class Meta:
         model = User
         fields = '__all__'
 
 
 class RegistrationForm(ModelForm):
+    """ Registration form """
+
     username = forms.CharField(
         widget=forms.TextInput(attrs={'placeholder': 'Username'}))
     password = forms.CharField(
@@ -50,6 +54,8 @@ class RegistrationForm(ModelForm):
 
 
 class LoginForm(forms.Form):
+    """ Authorization form """
+
     username = forms.CharField(
         widget=forms.TextInput(attrs={'placeholder': 'Username'}))
     password = forms.CharField(
@@ -65,6 +71,8 @@ class LoginForm(forms.Form):
 
 
 class SearchForm(forms.Form):
+    """ Search city form """
+
     city = forms.CharField(
         widget=forms.TextInput(attrs={'placeholder': 'Searched City'}))
 
@@ -72,6 +80,8 @@ class SearchForm(forms.Form):
 
 
 class PeriodForm(forms.Form):
+    """ Edit period form """
+
     period = forms.ChoiceField(choices=PERIOD_CHOICES, label="Choice period")
     notifications = forms.ChoiceField(choices=NOTIFICATIONS_CHOICES)
 

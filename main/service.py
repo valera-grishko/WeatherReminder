@@ -8,6 +8,8 @@ from .models import Follow
 
 
 def periodic_task_create(username, period):
+    """ Creating a periodic tasks """
+
     schedule, created = IntervalSchedule.objects.get_or_create(
         every=period.seconds,
         period=IntervalSchedule.SECONDS
@@ -23,6 +25,8 @@ def periodic_task_create(username, period):
 
 
 def send(info, email):
+    """ Sending messages """
+
     send_mail(
         'Regular weather information',
         info,
@@ -33,6 +37,8 @@ def send(info, email):
 
 
 def cities_weather(city):
+    """ Creating info of cities weather """
+
     response = requests.get(settings.APP_URL.format(city)).json()
     info = {
         'city': city,
@@ -44,5 +50,7 @@ def cities_weather(city):
 
 
 def create_button(user, city):
+    """ Follow button """
+
     return "Unfollow" if Follow.objects.filter(user=user,
                                                city=city) else "Follow"
